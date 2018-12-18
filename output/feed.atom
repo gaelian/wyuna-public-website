@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<id>http://host.com/</id>
+	<title>Your Book Title</title>
+	<link rel="self" href="http://host.com/" />
+	<rights>2018</rights>
+	<updated>2018-12-18T23:22:25Z</updated>
+	<logo>http://host.com/images/banner.jpg</logo>
+	<subtitle>A short description of your book.</subtitle>
+	<entry>
+		<id>http://host.com/blog/first-post</id>
+		<title>First Post</title>
+		<link href="http://host.com/blog/first-post" />
+		<link rel="enclosure" type="image" href="http://host.com/images/banner.jpg" />
+		<updated>2016-01-01T00:00:00Z</updated>
+		<content>&lt;p&gt;This is a new blog post.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;This is a new blog post.&lt;/p&gt;</summary>
+	</entry>
+</feed>
