@@ -2,17 +2,17 @@
 <rss xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
 	<channel>
 		<title>Your Book Title</title>
-		<link>http://host.com/</link>
+		<link>https://host.com/</link>
 		<description>A short description of your book.</description>
-		<copyright>2018</copyright>
-		<pubDate>Tue, 18 Dec 2018 23:22:25 GMT</pubDate>
-		<lastBuildDate>Tue, 18 Dec 2018 23:22:25 GMT</lastBuildDate>
+		<copyright>2019</copyright>
+		<pubDate>Thu, 03 Jan 2019 05:05:33 GMT</pubDate>
+		<lastBuildDate>Thu, 03 Jan 2019 05:05:33 GMT</lastBuildDate>
 		<item>
 			<title>First Post</title>
-			<link>http://host.com/blog/first-post</link>
+			<link>https://host.com/blog/first-post</link>
 			<description>&lt;p&gt;This is a new blog post.&lt;/p&gt;</description>
-			<enclosure url="http://host.com/images/banner.jpg" length="0" type="image" />
-			<guid>http://host.com/blog/first-post</guid>
+			<enclosure url="https://host.com/images/banner.jpg" length="0" type="image" />
+			<guid>https://host.com/blog/first-post</guid>
 			<pubDate>Fri, 01 Jan 2016 00:00:00 GMT</pubDate>
 			<content:encoded>&lt;p&gt;This is a new blog post.&lt;/p&gt;
 </content:encoded>

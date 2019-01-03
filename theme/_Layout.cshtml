@@ -1,3 +1,4 @@
+Layout
 @{
 	Layout = "/_Master.cshtml";
 	if(!ViewData.ContainsKey("Area"))
@@ -24,7 +25,7 @@
 							@if(Model.WithoutSettings.ContainsKey(BookSiteKeys.Image))
 							{
 								<img src="@(Context.GetLink(Model.WithoutSettings.String(BookSiteKeys.Image)))" alt="" />
-							}							
+							}
 							@RenderBody()
 						</article>
 					</div>
@@ -39,7 +40,7 @@
 								<img src="@Context.String(BookSiteKeys.BookImage)">
 							</div>
 							<header>
-								<h2>@Context.String(BookSiteKeys.Title)</h2>        
+								<h2>@Context.String(BookSiteKeys.Title)</h2>
 							</header>
 							@if(Context.ContainsKey(BookSiteKeys.Subtitle))
 							{

@@ -1,24 +1,44 @@
 <!DOCTYPE HTML>
-@{ 
-	string Title = Model.WithoutSettings.String(BookSiteKeys.Title); 
+@{
+	string Title = Model.WithoutSettings.String(BookSiteKeys.Title);
 	string PageTitle = Context.String(BookSiteKeys.Title) + (string.IsNullOrWhiteSpace(Title) ? string.Empty : " - " + Title);
 }
-<!--
-	Escape Velocity by HTML5 UP
-	html5up.net | @@ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>@PageTitle</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="@Context.String(BookSiteKeys.Description)" />
+		<meta name="application-name" content="@Context.String(BookSiteKeys.Title)" />
+		<meta name="msapplication-tooltip" content="@Context.String(BookSiteKeys.Title)" />
+		<meta name="msapplication-starturl" content="@Context.GetLink("/")" />
+
+		<!-- TODO: address these tags -->
+		<!-- TODO: More social graph meta tags -->
+		<meta property="og:title" content="@PageTitle" />
+        @*<meta property="og:image" content="@BookSiteKeys.Image" />*@
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="@Context.GetLink(Model, true)" />
+
+		<link rel="icon" href="@Context.GetLink("/favicon.ico")" type="image/x-icon">
+
+		<!-- Font Awesome 5 -->
+    	<link rel="stylesheet" href="@Context.GetLink("/assets/vendor/@fontawesome/fontawesome-free/css/all.min.css")" >
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i" rel="stylesheet">
+
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="@Context.GetLink("/assets/css/theme.css")" />
+
+
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
 		<!--[if lte IE 8]><script src="@Context.GetLink("/assets/js/ie/html5shiv.js")"></script><![endif]-->
-		<link rel="stylesheet" href="@Context.GetLink("/assets/css/main.css")" />
+		<!--<link rel="stylesheet" href="@Context.GetLink("/assets/css/main.css")" />-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="@Context.GetLink("/assets/css/ie8.css")" /><![endif]-->
-        <link href="@Context.GetLink("/assets/css/override.css")" rel="stylesheet" />
+        <!--<link href="@Context.GetLink("/assets/css/override.css")" rel="stylesheet" />
 
 		<meta name="description" content="@Context.String(BookSiteKeys.Description)" />
+
 		@if (Context.String(BookSiteKeys.BlogRssPath) != null) {
 		<link type="application/rss+xml" rel="alternate" title="@Context.String(BookSiteKeys.Title)" href="@Context.GetLink(Context.String(BookSiteKeys.BlogRssPath))" />
 		}
@@ -27,18 +47,9 @@
 		}
 		<link rel="shortcut icon" href="@Context.GetLink("/favicon.ico")" type="image/x-icon">
 		<link rel="icon" href="@Context.GetLink("/favicon.ico")" type="image/x-icon">
+		-->
 
-		<meta name="application-name" content="@Context.String(BookSiteKeys.Title)" />
-		<meta name="msapplication-tooltip" content="@Context.String(BookSiteKeys.Title)" />
-		<meta name="msapplication-starturl" content="@Context.GetLink("/")" />
-
-		<meta property="og:title" content="@PageTitle" />
-        @* <meta property="og:image" content="@BookSiteKeys.Image" /> *@
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="@Context.GetLink(Model, true)" />
-		<!-- TODO: More social graph meta tags -->
-		
-		<style>
+		<!--<style>
 			@if(Context.ContainsKey(BookSiteKeys.Image))
 			{
 				<text>
@@ -48,62 +59,289 @@
 					}
 				</text>
 			}
-		</style>
-        
-        @Html.Partial("_Head")
+		</style>-->
 	</head>
-	@{
+
+
+	@*@{
 		string bodyClass = Model.FilePath(Keys.RelativeFilePath).FullPath == "index.html" ? "homepage" : "right-sidebar";
-	}
-	<body class="@bodyClass">
-		<div id="page-wrapper">
+	}*@
 
-			<!-- Header -->
-				<div id="header-wrapper" class="wrapper">
-					<div id="header">
 
-						<!-- Logo -->
-							<div id="logo">
-								<h1><a href="@Context.GetLink("/")">@Context.String(BookSiteKeys.Title)</a></h1>
-								@if(Context.ContainsKey(BookSiteKeys.Subtitle))
-								{
-										<p>@Context.String(BookSiteKeys.Subtitle)</p>
-								}
-							</div>
+	<body>
+	@Html.Partial("_Head")
 
-						<!-- Nav -->
-							@Html.Partial("_Navbar")
+	<main>
+        <!-- Spotlight -->
+        <section class="slice slice-lg pb-200 bg-cover bg-size--cover" style="background-image: url('../assets/img/backgrounds/img-7.jpg');">
+            <span class="mask bg-dark opacity-8"></span>
+            <div class="container pt-md pt-lg-xl pb-lg-md ">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <h2 class="heading display-4 text-white mb-2">Build anything you want</h2>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6">
+                                    <p class="lead text-white lh-180">A purposeful event the will gather on one single stage the most important figures in the digital environment.</p>
+                                    <a href="https://www.youtube.com/watch?v=mqpwDJpI3Rc" class="btn btn-white btn-icon-only btn-zoom--hover rounded-circle mt-4" data-fancybox>
+                                        <span class="btn-inner--icon"><i class="fas fa-play"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-					</div>
-				</div>
+        <section class="slice slice-lg pt-md">
+            <div class="container mt--200">
+                <div class="card-group flex-column flex-lg-row">
+                    <div class="card bg-gradient-primary text-white px-4 px-lg-5 py-5 border-0">
+                        <div class="card-body">
+                            <h1 class="heading h2 text-white">Theme as framework</h1>
+                            <p class="mt-4 mb-0">Boomerang was designed as its own extended version of Bootstrap, built for offering a complete solution for various industries — business, real estate, travel and much more.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-gradient-secondary px-4 px-lg-5 py-5 border-0">
+                        <div class="card-body">
+                            <h1 class="heading h2">Even more components</h1>
+                            <p class="mt-4 mb-0">We know how much you love Bootstrap components. That's why we've customized and introduced dozens of completely new utilities, components and plugins.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-gradient-primary text-white px-4 px-lg-5 py-5 border-0">
+                        <div class="card-body">
+                            <h1 class="heading h2 text-white">Tons of variables included</h1>
+                            <p class="mt-4 mb-0">Theme components inherit much of their style from variables, exactly like Bootstrap. Change a few values and the theme adapts. It's never been easier!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-				@RenderBody()
-	
-				<!-- Footer -->
-				<div id="footer-wrapper" class="wrapper">
-						@Html.Partial("_Footer")
-				</div>	
+		<section class="slice slice-lg">
+            <div class="container no-padding">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-md text-center">
+                            <h3 class="heading h3">Just a few numbers</h3>
+                            <div class="fluid-paragraph text-center mt-4">
+                                <p class="lead lh-180">You get all Bootstrap components fully customized. Besides, you receive another numerous plugins out of the box and ready to use.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-			</div>
-			
-			@Html.Partial("_Scripts")
+                <!-- Countown -->
+                <div class="position-relative py-5">
 
-			<!-- Scripts -->
-				<script src="@Context.GetLink("/assets/js/jquery.min.js")"></script>
-				<script src="@Context.GetLink("/assets/js/jquery.dropotron.min.js")"></script>
-				<script src="@Context.GetLink("/assets/js/skel.min.js")"></script>
-				<script src="@Context.GetLink("/assets/js/skel-viewport.min.js")"></script>
-				<script src="@Context.GetLink("/assets/js/util.js")"></script>
-				<!--[if lte IE 8]><script src="@Context.GetLink("/assets/js/ie/respond.min.js")"></script><![endif]-->
-				<script src="@Context.GetLink("/assets/js/main.js")"></script>
-        		<script src="@Context.GetLink("/assets/js/background-check.min.js")"></script>
-				
-                <script>
-                        BackgroundCheck.init({
-                                targets: '#nav,#logo',
-                                images: '#header-wrapper'
-                        });
-                </script>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/png/user.png" class="img-fluid" style="width: 60px;">
+                                </div>
+                                <div class="h1 text-primary">
+                                    <span class="milestone-count" data-from="0" data-to="97" data-speed="3000" data-refresh-interval="100"></span>
+                                    <span class="milestone-count-extra">%</span>
+                                </div>
+                                <h3 class="h6 text-capitalize">Happy clients</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/png/help.png" class="img-fluid" style="width: 60px;">
+                                </div>
+                                <div class="h1 text-primary">
+                                    <span class="milestone-count" data-from="0" data-to="365" data-speed="3000" data-refresh-interval="100"></span>
+                                    <span class="milestone-count-extra">x7</span>
+                                </div>
+                                <h3 class="h6 text-capitalize">Customer support</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/png/template.png" class="img-fluid" style="width: 60px;">
+                                </div>
+                                <div class="h1 text-primary">
+                                    <span class="milestone-count" data-from="0" data-to="200" data-speed="3000" data-refresh-interval="100"></span>
+                                    <span class="milestone-count-extra">+</span>
+                                </div>
+                                <h3 class="h6 text-capitalize">Buil-in templates</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <img alt="Image placeholder" src="../assets/img/icons/dusk/png/administrative-tools.png" class="img-fluid" style="width: 60px;">
+                                </div>
+                                <div class="h1 text-primary">
+                                    <span class="milestone-count" data-from="0" data-to="970" data-speed="3000" data-refresh-interval="100"></span>
+                                    <span class="milestone-count-extra">+</span>
+                                </div>
+                                <h3 class="h6 text-capitalize">Components &amp; features</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="slice slice-lg bg-secondary">
+            <div class="container">
+                <div class="row row-grid">
+                    <div class="col-lg-3 align-self-center">
+                        <h3 class="h3">Experience quality</h3>
+                        <p class="lead mt-4">Purpose is a professional Bootstrap theme which includes over 150 ready to use layouts. From business and corporate to real estate, education, health and much more. It comes with three complete shop layouts.</p>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="px-4">
+                            <img alt="Image placeholder" src="../assets/img/prv/img-2-600x800.jpg" class="img-fluid rounded box-shadow-3">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 align-self-end">
+                        <div class="">
+                            <p class="pt-3">When you purchase Purpose you also get free updates for life and dedicated support from our team. You can now relax because we will take care of everything else.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slice slice-lg">
+            <div class="container no-padding">
+                <div class="mb-md text-center">
+                    <h3 class="heading h3">Tones of features</h3>
+                    <div class="fluid-paragraph text-center mt-4">
+                        <p class="lead lh-180">You get all Bootstrap components fully customized. Besides, you receive another numerous plugins out of the box and ready to use.</p>
+                    </div>
+                </div>
+
+                <div class="card-deck">
+                    <div class="card box-shadow-3--hover">
+                        <div class="px-2">
+                            <div class="card-body">
+                                <div class="border-bottom pb-3 mb-4">
+                                    <div class="icon mb-2">
+                                        <img alt="Image placeholder" src="../assets/img/icons/dusk/png/toolbar-top.png" class="img-fluid">
+                                    </div>
+                                    <h5 class="heading h5">Responsive design</h5>
+                                </div>
+                                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer px-0 py-0 border-0 overflow-hidden">
+                            <a href="#" class="btn btn-block btn-primary rounded-0">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="card box-shadow-3--hover">
+                        <div class="px-2">
+                            <div class="card-body">
+                                <div class="border-bottom pb-3 mb-4">
+                                    <div class="icon mb-2">
+                                        <img alt="Image placeholder" src="../assets/img/icons/dusk/png/code.png" class="img-fluid">
+                                    </div>
+                                    <h5 class="heading h5">Clever markup</h5>
+                                </div>
+                                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer px-0 py-0 border-0 overflow-hidden">
+                            <a href="#" class="btn btn-block btn-primary rounded-0">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="card box-shadow-3--hover">
+                        <div class="px-2">
+                            <div class="card-body">
+                                <div class="border-bottom pb-3 mb-4">
+                                    <div class="icon mb-2">
+                                        <img alt="Image placeholder" src="../assets/img/icons/dusk/png/paint-palette.png" class="img-fluid">
+                                    </div>
+                                    <h5 class="heading h5">Unlimited colors</h5>
+                                </div>
+                                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer px-0 py-0 border-0 overflow-hidden">
+                            <a href="#" class="btn btn-block btn-primary rounded-0">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slice slice-lg bg-secondary delimiter-top delimiter-bottom">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <div class="swiper-js-container">
+                            <div class="swiper-container" data-swiper-items="1" data-swiper-space-between="0">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="text-center">
+                                            <p class="h2 lh-160 text-gray font-italic font-weight-300" style="font-family: 'Playfair Display', serif;">"Amazing template! All-in-one, clean code, beautiful design, and really not hard to work with.Highly recommended for any kind on website."</p>
+                                            <div class="text-center mt-4">
+                                                <h3 class="h5">John Sullivan</h3>
+                                                <span class="lead text-muted">Slack</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="text-center">
+                                            <p class="h2 lh-160 text-gray font-italic font-weight-300" style="font-family: 'Playfair Display', serif;">"Amazing template! All-in-one, clean code, beautiful design, and really not hard to work with.Highly recommended for any kind on website."</p>
+                                            <div class="text-center mt-4">
+                                                <h3 class="h5">James Lewis</h3>
+                                                <span class="lead text-muted">Instagram</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slice slice-lg">
+            <div class="container">
+                <div class="mb-md text-center">
+                    <h3 class="heading h3">Subscribe for weekly news</h3>
+                    <div class="fluid-paragraph text-center mt-4">
+                        <p class="lead lh-180">You get all Bootstrap components fully customized. Besides, you receive another numerous plugins out of the box and ready to use.</p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Your email address">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-block btn-primary">Subscribe</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+		@RenderBody()
+	</main>
+
+	@Html.Partial("_Footer")
+
+    @Html.Partial("_Scripts")
 
 	</body>
 </html>
