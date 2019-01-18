@@ -1,4 +1,3 @@
-Layout
 @{
 	Layout = "/_Master.cshtml";
 	if(!ViewData.ContainsKey("Area"))
@@ -7,76 +6,29 @@ Layout
 	}
 }
 
-<div class="wrapper style2">
-	<div class="title">@ViewData["Area"]</div>
-	<div id="main" class="container">
-		<div class="row 150%">
-			<div class="8u 12u(mobile)">
+   <main>
+        <!-- Spotlight -->
+        <section class="slice slice-lg bg-gradient-dark">
+            <div class="container pt-lg">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2 class="display-4 text-white">@ViewData["Area"]</h2>
+                        <h5 class="mb-4 text-white">@Document["SubTitle"]</h5>
+                    </div>
+                </div>
+            </div>
+            <a href="#sct-faq" class="tongue tongue-bottom tongue-white scroll-me">
+                <i class="fas fa-angle-down"></i>
+            </a>
+        </section>
 
-				<!-- Content -->
-					<div id="content">
-						<article class="box post">
-							@if(Model.String(Keys.Title) != ViewData["Area"])
-							{
-								<header class="style1">
-									<h2>@Model.String(Keys.Title)</h2>
-								</header>
-							}
-							@if(Model.WithoutSettings.ContainsKey(BookSiteKeys.Image))
-							{
-								<img src="@(Context.GetLink(Model.WithoutSettings.String(BookSiteKeys.Image)))" alt="" />
-							}
-							@RenderBody()
-						</article>
-					</div>
-
-			</div>
-			<div class="4u 12u(mobile)">
-
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<section class="box">
-							<div class="image">
-								<img src="@Context.String(BookSiteKeys.BookImage)">
-							</div>
-							<header>
-								<h2>@Context.String(BookSiteKeys.Title)</h2>
-							</header>
-							@if(Context.ContainsKey(BookSiteKeys.Subtitle))
-							{
-								<p>@Context.String(BookSiteKeys.Subtitle)</p>
-							}
-							@if(Context.ContainsKey(BookSiteKeys.BookLink))
-							{
-								<a href="@Context.String(BookSiteKeys.BookLink)" class="button style1">@Context.String(BookSiteKeys.BookLinkText)</a>
-							}
-						</section>
-
-						@if(Documents[BookSite.BlogPosts].Any())
-						{
-							<section class="box">
-								<header>
-									<h2>Recent Blog Posts</h2>
-								</header>
-								<ul class="style2">
-									@foreach(IDocument post in Documents[BookSite.BlogPosts].Take(4))
-									{
-										<li>
-											<article class="box">
-												<h3><a href="@Context.GetLink(post)">@(post.String(Keys.Title))</a></h3>
-												<p><i>Posted on @(post.Get<DateTime>(BookSiteKeys.Published).ToLongDateString(Context))</i></p>
-											</article>
-										</li>
-									}
-								</ul>
-								<a href="@Context.GetLink(Context.String(BookSiteKeys.BlogPath))" class="button style1">Archives</a>
-							</section>
-						}
-
-						@Html.Partial("_Sidebar")
-					</div>
-
-			</div>
-		</div>
-	</div>
-</div>
+        <section class="slice slice-lg" id="sct-faq">
+            <div class="container">
+                <div class="row row-grid">
+                    <div class="col-lg-11 ml-lg-auto">
+						@RenderBody()
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>

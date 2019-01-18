@@ -1,9 +1,12 @@
 #recipe BookSite
 
+System.Globalization.CultureInfo.DefaultThreadCurrentCulture
+    = System.Globalization.CultureInfo.CreateSpecificCulture("en-AU");
+
 // Customize your settings and add new ones here
 Settings[Keys.LinksUseHttps] = true;
-Settings[Keys.Host] = "host.com";
-Settings[BookSiteKeys.Title] = "Your Book Title";
+Settings[Keys.Host] = "wyunacommunity.org";
+Settings[BookSiteKeys.Title] = "Wyuna Community Inc";
 Settings[BookSiteKeys.Subtitle] = "The Subtitle Of Your Book.";
 Settings[BookSiteKeys.Description] = "A short description of your book.";
 Settings[BookSiteKeys.BookLink] = "https://a/link/to/your/book";
@@ -12,3 +15,13 @@ Settings[BookSiteKeys.Image] = "/images/banner.jpg";  // Add an image at this pa
 Settings[BookSiteKeys.ChaptersIntro] = "A short introduction to the content of your book.";
 
 // Add any pipeline customizations here
+Pipelines.Remove("Chapters");
+Pipelines.Remove("BlogPosts");
+Pipelines.Remove("BlogIndexes");
+Pipelines.Remove("ChapterIndex");
+Pipelines.Remove("BlogFeed");
+Pipelines.Remove("RenderChapters");
+Pipelines.Remove("RenderBlogPosts");
+Pipelines.Remove("BlogFeed");
+Pipelines.Remove("Redirects");
+Pipelines.Remove("Less");

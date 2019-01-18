@@ -1,39 +1,89 @@
+Title: Home
+---
 @{
 	Layout = "/_Master.cshtml";
 }
 
-@*@Html.Partial("_Introduction")
+<main>
+        <!-- Spotlight -->
+        <section class="slice slice-lg pb-200 bg-cover bg-size--cover" style="background-image: url(@Context.GetLink("/assets/img/backgrounds/home.jpg"));">
+            <span class="mask bg-dark opacity-4"></span>
+            <div class="container pt-md pt-lg-xl pb-lg-md ">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <h2 class="heading display-4 text-white mb-2">You see things and you say "Why?" But I dream of things that never were and I say "Why not?"</h2>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6">
+                                    <p class="lead text-white lh-180">- George Bernard Shaw</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-@{
-		string wrapperStyle = "style3";
-}
+		<section class="slice slice-lg">
+            <div class="container no-padding">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-md text-center">
+                            <h3 class="heading h3">Welcome!</h3>
+                            <div class="fluid-paragraph text-center mt-4">
+                                <p class="lead lh-180">
+                                    The Wyuna Community Inc is a charity organisation located in the Australian Capital Territory.
+                                    Our focus is on sustainable living research and exploring alternatives to wage dependance.
+                                </p>
+                                <p class="lead lh-180">
+                                    The services we provide to members include:
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-@if(Documents[BookSite.BlogPosts].Any())
-{
-		<div class="wrapper @wrapperStyle">
-				@Html.Partial("_BlogPosts")
-		</div>
-		wrapperStyle = wrapperStyle == "style2" ? "style3" : "style2";
-}
+                <div class="position-relative py-5">
 
-@if(Documents[BookSite.Chapters].Any())
-{
-		<div class="wrapper @wrapperStyle">
-				@Html.Partial("_Chapters")
-		</div>
-		wrapperStyle = wrapperStyle == "style2" ? "style3" : "style2";
-}
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <img alt="" src="../assets/img/icons/dusk/png/double-bed.png" class="img-fluid" style="width: 60px;">
+                                </div>
+                                <h3 class="h6">Subsidised housing</h3>
+                            </div>
+                        </div>
 
-@if(Documents[BookSite.Sections].Any())
-{
-		foreach(IDocument section in Documents[BookSite.Sections])
-		{
-				<div class="wrapper @wrapperStyle">
-						<div class="title">@(section.String(Keys.Title))</div>
-						<div class="container">
-								@Html.Raw(section.Content)
-						</div>
-				</div>
-				wrapperStyle = wrapperStyle == "style2" ? "style3" : "style2";
-		}
-}*@
+                        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <img alt="" src="../assets/img/icons/dusk/png/help.png" class="img-fluid" style="width: 60px;">
+                                </div>
+                                <h3 class="h6">Mental health counselling and support</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <img alt="" src="../assets/img/icons/dusk/png/stairs-up.png" class="img-fluid" style="width: 60px;">
+                                </div>
+                                <h3 class="h6">Career advice and life skills training</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <img alt="" src="../assets/img/icons/dusk/png/queue.png" class="img-fluid" style="width: 60px;">
+                                </div>
+                                <h3 class="h6">Conflict resolution training</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+	</main>
