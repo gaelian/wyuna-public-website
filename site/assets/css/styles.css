@@ -306,10 +306,40 @@ textarea:focus {
 }
 
 .form-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   min-height: 26px;
   margin: 0;
   color: var(--muted);
   font-weight: 700;
+}
+
+.form-status__spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  border: 2px solid rgba(49, 95, 70, 0.2);
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.form-status.is-loading .form-status__spinner {
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-status__spinner {
+    animation: none;
+  }
 }
 
 .turnstile-slot {

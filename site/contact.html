@@ -58,7 +58,10 @@
             <div class="turnstile-slot" id="turnstile-slot"></div>
             <input type="hidden" id="startedAt" name="startedAt">
             <input type="hidden" id="turnstileToken" name="turnstileToken">
-            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            <p class="form-status" id="form-status" role="status" aria-live="polite">
+              <span class="form-status__spinner" aria-hidden="true"></span>
+              <span id="form-status-text"></span>
+            </p>
             <button class="button" type="submit">Send message</button>
           </form>
         </div>

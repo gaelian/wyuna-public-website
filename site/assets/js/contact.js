@@ -1,11 +1,17 @@
 const form = document.querySelector("#contact-form");
 const statusEl = document.querySelector("#form-status");
+const statusText = document.querySelector("#form-status-text");
 const startedAt = document.querySelector("#startedAt");
 const turnstileSlot = document.querySelector("#turnstile-slot");
 const turnstileToken = document.querySelector("#turnstileToken");
 
 if (startedAt) {
   startedAt.value = String(Date.now());
+}
+
+function setStatus(message, isLoading = false) {
+  statusText.textContent = message;
+  statusEl.classList.toggle("is-loading", isLoading);
 }
 
 async function configureTurnstile() {
@@ -54,7 +60,7 @@ async function submitContact(event) {
   const formData = new FormData(form);
   const payload = Object.fromEntries(formData.entries());
 
-  statusEl.textContent = "Sending...";
+  setStatus("Sending...", true);
   submitButton.disabled = true;
 
   try {
@@ -74,9 +80,9 @@ async function submitContact(event) {
 
     form.reset();
     startedAt.value = String(Date.now());
-    statusEl.textContent = "Thanks. Your message has been sent.";
+    setStatus("Thanks. Your message has been sent.");
   } catch (error) {
-    statusEl.textContent = error.message;
+    setStatus(error.message);
   } finally {
     submitButton.disabled = false;
   }
