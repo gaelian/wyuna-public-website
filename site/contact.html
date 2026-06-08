@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact | Wyuna Community Inc</title>
+    <meta name="description" content="Contact Wyuna Community Inc.">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="/assets/js/contact.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Wyuna Community Inc</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a aria-current="page" href="/contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="section__inner">
+          <p class="eyebrow">Contact</p>
+          <h1>Get in touch with Wyuna Community Inc.</h1>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__inner contact-layout">
+          <div class="prose">
+            <p>We welcome contact from like-minded organisations and individuals.</p>
+            <p>Use the form and we will respond when someone is available to review your message.</p>
+          </div>
+
+          <form class="contact-form" id="contact-form" action="/api/contact" method="post" novalidate>
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" required maxlength="120">
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required maxlength="180">
+            </div>
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" required maxlength="160">
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="7" required maxlength="4000"></textarea>
+            </div>
+            <div class="screen-reader-field" aria-hidden="true">
+              <label for="website">Website</label>
+              <input id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="turnstile-slot" id="turnstile-slot"></div>
+            <input type="hidden" id="startedAt" name="startedAt">
+            <input type="hidden" id="turnstileToken" name="turnstileToken">
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            <button class="button" type="submit">Send message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Wyuna Community Inc</strong>
+        <span>Australian Capital Territory</span>
+      </div>
+      <img src="/assets/img/ACNC-Registered-Charity-Logo_mono.png" alt="Registered Charity Tick from the Australian Charities and Not-for-profits Commission">
+      <span>&copy; 2026 Wyuna Community Inc.</span>
+    </footer>
+  </body>
+</html>
